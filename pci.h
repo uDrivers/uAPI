@@ -20,6 +20,7 @@
 #include "platform/types.h"
 #include "platform/compiler.h"
 #include "types.h"
+#include "status.h"
 
 UAPI_BEGIN_DECLS
 
