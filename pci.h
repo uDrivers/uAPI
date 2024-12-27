@@ -28,7 +28,7 @@ UAPI_BEGIN_DECLS
  * Open a PCI device at 'address'. The returned 'out_handle' may be used for
  * all compiled-in uAPI PCI functions.
  */
-uapi_status uapi_pci_device_open(
+uapi_status uapi_kernel_pci_device_open(
     uapi_pci_address *address, uapi_handle *out_handle
 );
 
@@ -47,6 +47,13 @@ uapi_status uapi_kernel_pci_cfg_read(
 uapi_status uapi_kernel_pci_cfg_write(
     uapi_handle, uapi_size offset, uapi_u8 byte_width, uapi_u64 value
 );
+
+/*
+ * Attach an opaque private context 'ctx' to a pci device handle,
+ * which can be retrieved later via the getter.
+ */
+uapi_status uapi_kernel_pci_set_ctx(uapi_handle, void *ctx);
+void *uapi_kernel_pci_get_ctx(uapi_handle);
 
 UAPI_END_DECLS
 
