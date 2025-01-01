@@ -19,6 +19,7 @@
 
 #include "platform/types.h"
 #include "platform/compiler.h"
+#include "platform/pci_types.h"
 #include "types.h"
 #include "status.h"
 
@@ -29,7 +30,7 @@ UAPI_BEGIN_DECLS
  * all compiled-in uAPI PCI functions.
  */
 uapi_status uapi_kernel_pci_device_open(
-    uapi_pci_address *address, uapi_handle *out_handle
+    uapi_pci_address *address, uapi_pci_handle *out_handle
 );
 
 /*
@@ -42,18 +43,18 @@ uapi_status uapi_kernel_pci_device_open(
  * byte.
  */
 uapi_status uapi_kernel_pci_cfg_read(
-    uapi_handle, uapi_size offset, uapi_u8 byte_width, uapi_u64 *value
+    uapi_pci_handle, uapi_size offset, uapi_u8 byte_width, uapi_u64 *value
 );
 uapi_status uapi_kernel_pci_cfg_write(
-    uapi_handle, uapi_size offset, uapi_u8 byte_width, uapi_u64 value
+    uapi_pci_handle, uapi_size offset, uapi_u8 byte_width, uapi_u64 value
 );
 
 /*
  * Attach an opaque private context 'ctx' to a pci device handle,
  * which can be retrieved later via the getter.
  */
-uapi_status uapi_kernel_pci_set_ctx(uapi_handle, void *ctx);
-void *uapi_kernel_pci_get_ctx(uapi_handle);
+uapi_status uapi_kernel_pci_set_ctx(uapi_pci_handle, void *ctx);
+void *uapi_kernel_pci_get_ctx(uapi_pci_handle);
 
 UAPI_END_DECLS
 
