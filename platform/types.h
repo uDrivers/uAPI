@@ -43,6 +43,7 @@ typedef bool uapi_bool;
 #define UAPI_NULL NULL
 
 typedef uintptr_t uapi_uintptr;
+typedef uapi_uintptr uapi_phys_addr;
 typedef uapi_uintptr uapi_virt_addr;
 typedef size_t uapi_size;
 
