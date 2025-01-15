@@ -27,14 +27,14 @@ UAPI_BEGIN_DECLS
  * 'max_phys_addr' specifies the maximum acceptible address of the
  * end of the last allocated page.
  */
-uapi_phys_addr uapi_allocate_pages(
+uapi_phys_addr uapi_kernel_allocate_pages(
     uapi_size count, uapi_size align, uapi_phys_addr max_phys_addr
 );
 
 #ifndef UAPI_SIZED_FREES
-void uapi_free_pages(uapi_phys_addr);
+void uapi_kernel_free_pages(uapi_phys_addr);
 #else
-void uapi_free_pages(uapi_phys_addr, uapi_size count_hint);
+void uapi_kernel_free_pages(uapi_phys_addr, uapi_size count_hint);
 #endif
 
 UAPI_END_DECLS
